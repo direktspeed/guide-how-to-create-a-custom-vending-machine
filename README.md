@@ -7,9 +7,17 @@ and as bundler/module loader we use StealJS
 - https://canjs.com
 - https://feathersjs.com
 
-
-
 ## Content
+- PrePare Hardware Server (PC)
+  - Install Ubuntu LTS 16.04
+  - run install-server.sh
+    - Installs ssh key less auth (optional)
+    - Configure the Firewall (optional)
+    - Installs Docker
+    - installs couchbase as docker container named database running on host network designed to get secured via network routing
+    - installs Backend via Docker NodeJS Latest as container named backend exposes:3030
+- PrePare Hardware Client Raspberry PI
+- PrePare Hardware Client PC 
 - Create a backend using FeathersJS and feathers-couchbase + feathers-dynamic-services
 - Create a Frontend for the FeathersJS backend Services
 - Diffrent Example UseCases

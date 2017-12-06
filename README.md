@@ -28,3 +28,27 @@ and as bundler/module loader we use StealJS
 - Integrate Printers (example using TL80) for Printing needs
 - Integrate NFC readers for Card Acceptance
 - Integrate relay switching (example using node-crelay)
+
+
+
+## Use drivers
+```
+npm install -g <package.name>
+cp $(npm root -g)/<package.name>/config.example.js $(npm root -g)/<package.name>/config.js
+edit $(npm root -g)/<package.name>/config.js
+
+# Run via systemctl
+systemctl enable $(npm root -g)/<package.name>/<package.name>.service
+systemctl start <package.name>
+
+# Run via docker (Optional)
+```
+
+## Drivers NPM <package.name>
+- feathers-nfc-pcsc
+- feathers-cctalk
+- feathers-printer
+- feathers-crelay
+
+## Backend Components
+- See package.json

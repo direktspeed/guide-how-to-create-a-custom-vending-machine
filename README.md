@@ -7,6 +7,13 @@ and as bundler/module loader we use StealJS
 - https://canjs.com
 - https://feathersjs.com
 
+
+In this guide you will learn about all DoneJS and FeathersJS features by creating, testing, documenting, building and deploying Custom Terminal Applications that are using a single FeathersJS driven Backend, The final result will look like this:
+
+
+** ScreenShoot **
+
+
 ## Content
 - PrePare Hardware Server (PC)
   - Install Ubuntu LTS 16.04

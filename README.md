@@ -7,11 +7,30 @@ and as bundler/module loader we use StealJS
 - https://canjs.com
 - https://feathersjs.com
 
-
+## What you will learn
 In this guide you will learn about all DoneJS and FeathersJS features by creating, testing, documenting, building and deploying Custom Terminal Applications that are using a single FeathersJS driven Backend, The final result will look like this:
 
-
 ** ScreenShoot **
+
+After the initial application setup, which includes a server that hosts and pre-renders the application, we will create several custom elements and bring them together using the application state and routes. Then we will learn how to retrieve data from the server using a RESTful API.
+
+After that we will talk about what a view model is and how to identify, implement and test its functionality. Once we have unit tests running in the browser, we will automate running them locally from the command line and also on a continuous integration server. In the subsequent chapters, we will show how to easily import other modules into our application and how to set up a real-time connection.
+
+Finally, we will describe how to build and deploy our application
+
+1. if you don't have installed donejs follow
+https://donejs.com/SettingUp.html
+2. if you don't have installed feathers follow
+https://docs.feathersjs.com/guides/readme.html => https://docs.feathersjs.com/guides/step-by-step/generators/readme.html
+
+3. Clone this repository it Contains 
+- backend/ => the full backend code
+- frontends/ => diffrent frontend examples that get all directly served by the backend
+4. go into the folder with cd
+5. npm install => runs npm install in frontends and backend
+6. to understand the Frontend Parts follow https://donejs.com/place-my-order.html its a example application like this using a FeathersJS Backend.
+
+
 
 
 ## Content

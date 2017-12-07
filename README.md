@@ -23,15 +23,12 @@ https://donejs.com/SettingUp.html
 2. if you don't have installed feathers follow
 https://docs.feathersjs.com/guides/readme.html => https://docs.feathersjs.com/guides/step-by-step/generators/readme.html
 
-3. Clone this repository it Contains 
+3. Clone this repository it Contains
 - backend/ => the full backend code
 - frontends/ => diffrent frontend examples that get all directly served by the backend
 4. go into the folder with cd
 5. npm install => runs npm install in frontends and backend
 6. to understand the Frontend Parts follow https://donejs.com/place-my-order.html its a example application like this using a FeathersJS Backend.
-
-
-
 
 ## Content
 - PrePare Hardware Server (PC)
@@ -43,7 +40,7 @@ https://docs.feathersjs.com/guides/readme.html => https://docs.feathersjs.com/gu
     - installs couchbase as docker container named database running on host network designed to get secured via network routing
     - installs Backend via Docker NodeJS Latest as container named backend exposes:3030
 - PrePare Hardware Client Raspberry PI
-- PrePare Hardware Client PC 
+- PrePare Hardware Client PC
 - Create a backend using FeathersJS and feathers-couchbase + feathers-dynamic-services
 - Create a Frontend for the FeathersJS backend Services
 - Diffrent Example UseCases
@@ -56,9 +53,57 @@ https://docs.feathersjs.com/guides/readme.html => https://docs.feathersjs.com/gu
 - Integrate relay switching (example using node-crelay)
 
 
+## Deploy a Local PC as server
+- Install Ubuntu 16.04 server
+  - Configure keyless Auth.
+  - Configure the firewall (UFW/IPTABLES)
+  - Configure the Router in our case a Cisco with WebInterface
+- Install Docker as we use that as Packager and Init Process
 
-## Use drivers
+# Starting peep-db on master
+```sh
+# Production
+docker run -d --ulimit nofile=40960:40960 --ulimit core=100000000:100000000 --ulimit memlock=100000000:100000000 --restart=always --name db -v /srv/db:/opt/couchbase/var --net=host couchbase
+
+# Development don't do that on a production server!
+sudo docker rm -f db; sudo rm -rfv /srv/db-peep
+docker run -d --name db -v /srv/db:/opt/couchbase/var --net=host couchbase
 ```
+
+# UFW Firewall Rules
+```sh
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+
+sudo ufw allow from 172.17.0.0/24 # Internal Docker Networks
+sudo ufw allow from 192.168.1.0/24 # Local Network
+sudo ufw allow from 85.155.178.100/30 # Allow traffic from developers networks
+
+## On Developers client (FrankPC) allow traffic from location
+sudo ufw allow from 80.110.0.0.1/30 # Location 1 Public IP
+```
+
+# Router Configs
+## Couchbase ports
+## https://developer.couchbase.com/documentation/server/3.x/admin/Install/install-networkPorts.html
+
+>8091-8094
+>11207-11215
+>18091-18092
+>21100-21299
+>4369
+
+## SSH Admin port
+>22
+
+
+
+## Deploy a PC as Client/Terminal/Vending machine
+
+## Deploy a ARM (PI) Device as Client/Terminal/Vending machine
+
+## Use drivers on ARM & PC
+```sh
 npm install -g <package.name>
 cp $(npm root -g)/<package.name>/config.example.js $(npm root -g)/<package.name>/config.js
 edit $(npm root -g)/<package.name>/config.js

@@ -118,8 +118,8 @@ systemctl start <package.name>
 ## Drivers NPM <package.name>
 - feathers-nfc-pcsc
 - feathers-cctalk
-- feathers-printer
-- feathers-crelay
+- feathers-printer ** Work In Progress
+- feathers-crelay ** Work In Progress
 
 ## Backend Components
 - See package.json
